@@ -52,7 +52,7 @@ print(df_products)
 print(df_orders)
 
 '''
-📊 Задача 1: Объединение данных и расчет выручки 
+Задача 1: Объединение данных и расчет выручки 
 Объедини таблицы 
 df_orders, df_products и df_clients в один DataFrame. 
 Добавь колонку revenue, которая равна произведению price на quantity. 
@@ -62,7 +62,6 @@ df_tables = pd.merge(df_merge,df_products, how = 'inner', on = 'product_id')
 df_tables['revenue'] = df_tables['quantity'] * df_tables['price']
 print(df_tables.columns)
 '''
-📊 
 Задача 2: Выручка по категориям 
 Посчитай общую выручку по каждой категории товаров. 
 Отсортируй результат по убыванию выручки. 
@@ -70,14 +69,14 @@ print(df_tables.columns)
 df_total_revenue = df_tables.groupby('category')['revenue'].sum()
 print(df_total_revenue.sort_values(ascending = False))
 '''
-📊 Задача 3: Топ-5 клиентов 
+Задача 3: Топ-5 клиентов 
 Найди топ-5 клиентов по сумме покупок. 
 Выведи таблицу с колонками: имя клиента, город, общая сумма покупок. 
 '''
 df_best_clients = df_tables.groupby(['client_name','city'])['revenue'].sum().nlargest(5)
 print(df_best_clients)
 '''
-📊 Задача 4: Динамика среднего чека 
+Задача 4: Динамика среднего чека 
 Посчитай средний чек и количество заказов по месяцам. 
 Выведи таблицу с колонками: месяц, средний чек, количество заказов. 
 '''
@@ -89,7 +88,7 @@ df_count_avg = df_tables.groupby('month').agg(
 print(df_count_avg)
 
 '''
-📊 Задача 5: Сводная таблица 
+Задача 5: Сводная таблица 
 Построй сводную таблицу: 
 По строкам — города клиентов 
 По столбцам — категории товаров 
